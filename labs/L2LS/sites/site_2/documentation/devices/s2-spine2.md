@@ -290,6 +290,8 @@ vlan internal order ascending range 1006 1199
 | ------- | ---- | ------------ |
 | 30 | Thirty | - |
 | 40 | Forty | - |
+| 45 | Forty-five | - |
+| 245 | 2-Forty-five | - |
 | 4093 | MLAG_L3 | MLAG |
 | 4094 | MLAG | MLAG |
 
@@ -302,6 +304,12 @@ vlan 30
 !
 vlan 40
    name Forty
+!
+vlan 45
+   name Forty-five
+!
+vlan 245
+   name 2-Forty-five
 !
 vlan 4093
    name MLAG_L3
@@ -466,6 +474,8 @@ interface Loopback0
 | --------- | ----------- | --- | ---- | -------- |
 | Vlan30 | Thirty | default | - | False |
 | Vlan40 | Forty | default | - | False |
+| Vlan45 | Forty-five | default | - | False |
+| Vlan245 | 2-Forty-five | default | - | False |
 | Vlan4093 | MLAG_L3 | default | 1500 | False |
 | Vlan4094 | MLAG | default | 1500 | False |
 
@@ -475,6 +485,8 @@ interface Loopback0
 | --------- | --- | ---------- | ------------------ | ------------------------- | ------ | ------- |
 | Vlan30 |  default  |  10.30.30.3/24  |  -  |  10.30.30.1  |  -  |  -  |
 | Vlan40 |  default  |  10.40.40.3/24  |  -  |  10.40.40.1  |  -  |  -  |
+| Vlan45 |  default  |  10.45.45.3/24  |  -  |  10.45.45.1  |  -  |  -  |
+| Vlan245 |  default  |  10.245.245.3/24  |  -  |  10.245.245.1  |  -  |  -  |
 | Vlan4093 |  default  |  10.2.253.3/31  |  -  |  -  |  -  |  -  |
 | Vlan4094 |  default  |  10.2.253.1/31  |  -  |  -  |  -  |  -  |
 
@@ -493,6 +505,18 @@ interface Vlan40
    no shutdown
    ip address 10.40.40.3/24
    ip virtual-router address 10.40.40.1
+!
+interface Vlan45
+   description Forty-five
+   no shutdown
+   ip address 10.45.45.3/24
+   ip virtual-router address 10.45.45.1
+!
+interface Vlan245
+   description 2-Forty-five
+   no shutdown
+   ip address 10.245.245.3/24
+   ip virtual-router address 10.245.245.1
 !
 interface Vlan4093
    description MLAG_L3
